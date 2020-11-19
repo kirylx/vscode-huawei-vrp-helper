@@ -1,4 +1,4 @@
-# Huawei VRP Syntax Highlighting and snippets
+# Huawei VRP Syntax Highlighting and Snippets
 
 Huawei VRP configuration helper.
 
