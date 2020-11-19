@@ -4,6 +4,7 @@
     "description": "Huawei VRP Syntax Highlighting",
     "version": "0.0.3",
     "publisher": "kirylx",
+    "icon": "logo.png",
     "license": "MIT",
     "repository": {
         "type": "git",
