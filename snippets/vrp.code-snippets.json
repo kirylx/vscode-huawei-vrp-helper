@@ -1,0 +1,127 @@
+{
+    "Alarm transceiver disable": {
+        "prefix": "transceiver",
+        "body": ["transceiver non-certified-alarm disable"],
+        "description": "Disable 3d party transceiver alarm"
+    },
+    "ACL": {
+        "prefix": "acl number",
+        "body": ["acl number ${1:number}", "description ${2:DESCRIPTION}"],
+        "description": "Create ACL"
+    },
+    "AAA": {
+        "prefix": "aaa",
+        "body": [
+            "aaa",
+            "local-user ${1:huawei} password irreversible-cipher ${2:Changeme_123!}",
+            "local-user ${1:huawei} service-type terminal ssh",
+            "local-user ${1:huawei} level 3",
+            "local-user ${1:huawei} state block fail-times 3 interval 5"
+        ],
+        "description": "Create AAA"
+    },
+    "Interface": {
+        "prefix": "interface",
+        "body": ["interface ${1:nameX/X/X}", "description ${2:DESCRIPTION}"],
+        "description": "Create new interface"
+    },
+    "IP address": {
+        "prefix": "ip address",
+        "body": ["ip address ${1:ip} ${2:mask}"],
+        "description": "Assign new IP and mask"
+    },
+    "BFD discriminator": {
+        "prefix": "discriminator",
+        "body": ["discriminator ${1|local,remote|} ${2:number}"],
+        "description": "Assign BFD discriminator"
+    },
+    "IP VPN instance": {
+        "prefix": "ip vpn-instance",
+        "body": [
+            "ip vpn-instance ${1:name}",
+            "route-distinguisher ${2:RD}:${3:RD}",
+            "vpn-target ${4:RT}:${5:RT} export-extcommunity",
+            "vpn-target ${4:RT}:${5:RT} import-extcommunity"
+        ],
+        "description": "Create new VPN instance"
+    },
+    "Create single VLAN": {
+        "prefix": "vlan",
+        "body": ["vlan ${1:number}", "description ${2:DESCRIPTION}"],
+        "description": "Create new single VLAN"
+    },
+    "Create VLAN batch": {
+        "prefix": "vlan batch",
+        "body": ["vlan batch $number"],
+        "description": "Create VLAN batch (you also can use 'to' between numbers)"
+    },
+    "VPN binding": {
+        "prefix": "ip binding vpn-instance",
+        "body": ["ip binding vpn-instance $name"],
+        "description": "Bind to VPN instance"
+    },
+    "VRRP": {
+        "prefix": "vrrp vrid",
+        "body": [
+            "vrrp vrid ${1:number} virtual-ip ${2:ip}",
+            "vrrp vrid ${1:number} priority ${3:number}"
+        ],
+        "description": "Bind to new VRRP instance"
+    },
+    "Assign VLAN access": {
+        "prefix": "port default vlan",
+        "body": ["port default vlan $number"],
+        "description": "Bind access port to VLAN"
+    },
+    "Allow VLAN trunk": {
+        "prefix": "port trunk allow-pass vlan",
+        "body": ["port trunk allow-pass vlan $number"],
+        "description": "Allow VLANs on trunk port (you can also use 'to' between numbers or 'all' "
+    },
+    "Global static IP route": {
+        "prefix": "ip route-static",
+        "body": [
+            "ip route-static ${1:ip} ${2:mask} ${3:ip-next-hop} description ${4:DESCRIPTION}"
+        ],
+        "description": "Create global static IP route"
+    },
+    "VPN IP route": {
+        "prefix": "ip route-static vpn-instance",
+        "body": [
+            "ip route-static vpn-instance ${1:name} ${2:ip} ${3:mask} ${4:ip-next-hop} description ${5:DESCRIPTION}"
+        ],
+        "description": "Create VPN static IP route"
+    },
+    "Console local user": {
+        "prefix": "console",
+        "body": [
+            "user-interface con 0",
+            "history-command max-size 256",
+            "idle-timeout 40 0",
+            "authentication mode ${1|aaa,password cipher Changeme_123!|}"
+        ],
+        "description": "Configure console port"
+    },
+    "VTY local user": {
+        "prefix": "vty",
+        "body": [
+            "user-interface vty 0 4",
+            "history-command max-size 256",
+            "idle-timeout 40 0",
+            "user privilege level 3",
+            "protocol inbound ssh",
+            "authentication mode ${1|aaa,password cipher Changeme_123!|}"
+        ],
+        "description": "Configure VTY interface"
+    },
+    "SSH local user": {
+        "prefix": "ssh user",
+        "body": [
+            "ssh user ${1:huawei}",
+            "ssh user ${1:huawei} ${2|authentication-type password,authentication-type default password|}",
+            "ssh user ${1:huawei} service-type all",
+            "ssh server-source all-interface"
+        ],
+        "description": "Create new SSH user"
+    }
+}

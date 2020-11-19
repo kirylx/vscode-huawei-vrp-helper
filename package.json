@@ -1,0 +1,43 @@
+{
+    "name": "vrp",
+    "displayName": "Huawei VRP Syntax",
+    "description": "Huawei VRP Syntax Highlighting",
+    "version": "0.0.3",
+    "publisher": "kirylx",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kirylx/vscode-huawei-vrp-helper.git"
+    },
+    "engines": {
+        "vscode": "^1.51.0"
+    },
+    "contributes": {
+        "languages": [
+            {
+                "id": "vrp",
+                "aliases": [
+                    "Huawei VRP",
+                    "vrp"
+                ],
+                "extensions": [
+                    "vrp"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "vrp",
+                "scopeName": "source.vrp",
+                "path": "./syntaxes/vrp.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "vrp",
+                "path": "./snippets/vrp.code-snippets.json"
+            }
+        ]
+    }
+}

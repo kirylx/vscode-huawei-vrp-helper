@@ -1,0 +1,72 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Huawei VRP",
+    "fileTypes": ["vrp", "cfg"],
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "invalid.illegal.vrp",
+                    "match": "\\b(return|^error|^Error|^Warning|^warning|reboot|commit)\\b"
+                },
+                {
+                    "name": "markup.italic.vrp",
+                    "match": "^(<.*>|\\[.*\\])"
+                },
+                {
+                    "name": "comment.line.vrp",
+                    "match": "^[s]*#(.*)"
+                },
+                {
+                    "name": "markup.underline.vrp",
+                    "match": "(display|disp)(.*)"
+                },
+                {
+                    "name": "markup.inserted.vrp",
+                    "match": "(undo shutdown|undo shut|permit)"
+                },
+                {
+                    "name": "invalid.illegal.vrp",
+                    "match": "(undo|shutdown|shut|deny|[^(](.*)\\sdown|(.*)\\sDown)"
+                },
+                {
+                    "name": "markup.bold.vrp",
+                    "match": "^interface\\s\\S*"
+                },
+                {
+                    "name": "entity.name.class.vrp",
+                    "match": "vpn-instance\\s\\S*"
+                },
+                {
+                    "name": "entity.name.function.vrp",
+                    "match": "vlan.*"
+                },
+                {
+                    "name": "entity.name.tag.vrp",
+                    "match": "(^bfd\\s\\S*|bfd-session\\s\\S*|(?:)interface\\s\\S*)"
+                },
+                {
+                    "name": "constant.numeric.vrp",
+                    "match": "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
+                },
+                {
+                    "name": "entity.name.type",
+                    "match": "(eth-trunk\\s\\S*|dfs-group\\s\\d\\sm-lag.*)"
+                },
+                {
+                    "name": "entity.name.tag.vrp",
+                    "match": "(traffic policy\\s\\S*|traffic classifier\\s\\S*|traffic behavior\\s\\S*|route-policy\\s\\S*|traffic-policy\\s\\S*|ip-prefix\\s\\S*|acl.*)"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.vrp"
+}
